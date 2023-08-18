@@ -1,6 +1,8 @@
-package com.swcoach.courseregistration.domain.user;
+package com.swcoach.courseregistration.config.auth;
 
 import com.swcoach.courseregistration.config.auth.dto.SessionUser;
+import com.swcoach.courseregistration.domain.user.jpa.User;
+import com.swcoach.courseregistration.domain.user.jpa.UserRepository;
 import jakarta.servlet.http.HttpSession;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
@@ -13,7 +15,6 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
-import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
 
@@ -31,15 +32,18 @@ public class UserSecurityService implements UserDetailsService {
         }
         User user = optionalUser.get();
 
-        httpSession.setAttribute("user", new SessionUser(user));
+//        httpSession.setAttribute("user", new SessionUser(user));
+//        List<GrantedAuthority> authorities = Collections.singletonList();
+        List<GrantedAuthority> authorities = List.of(new SimpleGrantedAuthority(user.getRole().getKey()));
+//
+//        return org.springframework.security.core.userdetails.User
+//                .withUsername(user.getUsername())
+//                .password(user.getPassword())
+//                .authorities(authorities)
+//                .build();
 
-        List<GrantedAuthority> authorities = Collections.singletonList(new SimpleGrantedAuthority(user.getRole().getKey()));
+        return new SessionUser(user.getUsername(), user.getPassword(), authorities, user.getName(), user.getContact());
 
-        return org.springframework.security.core.userdetails.User
-                .withUsername(user.getUsername())
-                .password(user.getPassword())
-                .authorities(authorities)
-                .build();
     }
 
     @Bean

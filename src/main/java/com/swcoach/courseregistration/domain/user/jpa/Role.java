@@ -1,4 +1,4 @@
-package com.swcoach.courseregistration.domain.user;
+package com.swcoach.courseregistration.domain.user.jpa;
 
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;

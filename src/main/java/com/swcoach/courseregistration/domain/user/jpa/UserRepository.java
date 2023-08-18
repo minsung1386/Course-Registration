@@ -1,5 +1,6 @@
-package com.swcoach.courseregistration.domain.user;
+package com.swcoach.courseregistration.domain.user.jpa;
 
+import com.swcoach.courseregistration.domain.user.jpa.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.Optional;

@@ -1,0 +1,43 @@
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/course_registration
+    username: root
+    password: 1234
+
+  jpa:
+    database: mysql
+    database-platform: org.hibernate.dialect.MySQLDialect
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        format_sql: true
+        show_sql: true
+    defer-datasource-initialization: true
+
+  sql:
+    init:
+      mode: always
+
+  session:
+    timeout: 3600
+    store-type: jdbc
+    jdbc:
+      initialize-schema: always
+      table-name: SPRING_SESSION
+
+  servlet:
+    multipart:
+      max-file-size: 1000MB
+      max-request-size: 1000MB
+
+jwt:
+  header: Authorization
+  secret: bWluc3VuZ19zd2NvYWNoX3N1Z2FuZ3N5c3RlbV90aGlzX2lzX2Zvcl9qd3Rfc2VjcmV0
+  access-token-validity-in-seconds: 600 # 10 min
+
+# log
+debug: true
+

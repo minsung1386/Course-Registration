@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en"
-      xmlns:th="http://www.thymeleaf.org">
+      xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.w3.org/1999/xhtml">
 <head>
   <meta charset="UTF-8">
   <title>Registration and Login System</title>
@@ -22,10 +22,10 @@
           <a class="nav-link active" aria-current="page" th:href="@{/signup}">Register</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" th:if="${session.user}" th:href="@{/logout}">Logout</a>
+          <a class="nav-link active" aria-current="page"  sec:authorize="isAuthenticated()" th:href="@{/logout}">Logout</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" th:unless="${session.user}" th:href="@{/login}">Login</a>
+          <a class="nav-link active" aria-current="page"  sec:authorize="isAnonymous()" th:href="@{/login}">Login</a>
         </li>
       </ul>
     </div>
@@ -36,7 +36,7 @@
   <div class="row">
     <h1 class="text-center"> Registration and Login System </h1>
   </div>
-  <div th:if="${session.user}" >
+  <div th:if="${user}" >
     <p th:text="'Name : ' + ${session.user.getName()}"></p>
   </div>
   <div th:unless="${session.user}">
