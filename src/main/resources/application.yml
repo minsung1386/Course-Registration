@@ -10,7 +10,7 @@ spring:
     database-platform: org.hibernate.dialect.MySQLDialect
     show-sql: true
     hibernate:
-      ddl-auto: update
+      ddl-auto: create-drop
     properties:
       hibernate:
         format_sql: true
@@ -21,12 +21,12 @@ spring:
     init:
       mode: always
 
-  session:
-    timeout: 3600
-    store-type: jdbc
-    jdbc:
-      initialize-schema: always
-      table-name: SPRING_SESSION
+#  session:
+#    timeout: 3600
+#    store-type: jdbc
+#    jdbc:
+#      initialize-schema: always
+#      table-name: SPRING_SESSION
 
   servlet:
     multipart:
@@ -35,9 +35,11 @@ spring:
 
 jwt:
   header: Authorization
-  secret: bWluc3VuZ19zd2NvYWNoX3N1Z2FuZ3N5c3RlbV90aGlzX2lzX2Zvcl9qd3Rfc2VjcmV0
-  access-token-validity-in-seconds: 600 # 10 min
+  secret: bWluc3VuZy1zdWdhbmctc3lzdGVtLXN3LWNvYWNoLXByb2dyYW0tMjAyMy1pdC1uZWVkcy10by1iZS1sb25nLWVub3VnaC10aGlzLWlzLWp3dC1kZW1vLXByb2plY3Q=
+  token-validity-in-seconds: 86400
 
 # log
-debug: true
+logging:
+  level:
+    root: debug
 

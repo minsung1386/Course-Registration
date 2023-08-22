@@ -1,17 +1,7 @@
 package com.swcoach.courseregistration.controller;
 
-import com.swcoach.courseregistration.domain.course.Course;
-import com.swcoach.courseregistration.domain.course.CourseDto;
-import com.swcoach.courseregistration.domain.student.Student;
-import com.swcoach.courseregistration.service.CourseService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
-
-import java.util.List;
-import java.util.Optional;
 
 @RestController
 @RequiredArgsConstructor

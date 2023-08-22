@@ -1,7 +1,7 @@
 package com.swcoach.courseregistration.service;
 
-import com.swcoach.courseregistration.domain.course.Course;
-import com.swcoach.courseregistration.domain.course.CourseRepository;
+import com.swcoach.courseregistration.entity.Course;
+import com.swcoach.courseregistration.repository.CourseRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 

@@ -1,6 +1,6 @@
 package com.swcoach.courseregistration.controller;
 
-import com.swcoach.courseregistration.domain.course.Course;
+import com.swcoach.courseregistration.entity.Course;
 import com.swcoach.courseregistration.service.CourseService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
