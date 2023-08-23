@@ -3,7 +3,6 @@ package com.swcoach.courseregistration.entity;
 import jakarta.persistence.*;
 import lombok.Getter;
 
-import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -14,9 +13,6 @@ public class Student {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(columnDefinition = "text")
-    private String name;
-
     @Column
     private String major;
 
@@ -26,10 +22,13 @@ public class Student {
     @Column
     private Double gpa;
 
-    @OneToOne
-    @JoinColumn(name = "userId")
-    private User user;
+    @Column
+    private String idNum;
 
     @OneToMany(mappedBy = "student", fetch = FetchType.LAZY, orphanRemoval = true, cascade = CascadeType.ALL)
-    private List<Enrollment> enrollments = new ArrayList<>();
+    private List<Enrollment> enrollments;
+
+    @OneToOne
+    @JoinColumn(name = "user_id")
+    private User user;
 }

@@ -4,7 +4,6 @@ import com.swcoach.courseregistration.jwt.JwtAccessDeniedHandler;
 import com.swcoach.courseregistration.jwt.JwtAuthenticationEntryPoint;
 import com.swcoach.courseregistration.jwt.JwtSecurityConfig;
 import com.swcoach.courseregistration.jwt.TokenProvider;
-import org.springframework.boot.autoconfigure.security.servlet.PathRequest;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.method.configuration.EnableMethodSecurity;
@@ -47,7 +46,7 @@ public class SecurityConfig {
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         http
-            // token을 사용하는 방식이기 때문에 csrf를 disable합니다.
+            // token을 사용하기 때문에 csrf disable
             .csrf(csrf -> csrf.disable())
 
             .addFilterBefore(corsFilter, UsernamePasswordAuthenticationFilter.class)
@@ -60,7 +59,8 @@ public class SecurityConfig {
                 .requestMatchers(new AntPathRequestMatcher("/api/hello")).permitAll()
                 .requestMatchers(new AntPathRequestMatcher("/api/authenticate")).permitAll()
                 .requestMatchers(new AntPathRequestMatcher("/api/signup")).permitAll()
-                .requestMatchers(PathRequest.toH2Console()).permitAll()
+                .requestMatchers(new AntPathRequestMatcher("/api/search")).permitAll()
+//                .requestMatchers(PathRequest.toH2Console()).permitAll()
 //                .requestMatchers("/api/hello", "/api/authenticate", "/api/signup").permitAll()
 //                .requestMatchers(PathRequest.toH2Console()).permitAll()
                 .anyRequest().authenticated()
@@ -72,11 +72,11 @@ public class SecurityConfig {
             )
 
             // enable h2-console
-            .headers(headers ->
-                headers.frameOptions(options ->
-                    options.sameOrigin()
-                )
-            )
+//            .headers(headers ->
+//                headers.frameOptions(options ->
+//                    options.sameOrigin()
+//                )
+//            )
 
             .apply(new JwtSecurityConfig(tokenProvider));
         return http.build();

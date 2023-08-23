@@ -1,17 +1,21 @@
 package com.swcoach.courseregistration.controller;
 
-import lombok.RequiredArgsConstructor;
+import com.swcoach.courseregistration.service.CourseService;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequiredArgsConstructor
+@RequestMapping("/api")
 public class RegistrationController {
 
-//    private final CourseService courseService;
-//    private final StudentService studentService;
-//
-//    @GetMapping("/api/v1/register/{courseId}")
-//    public ResponseEntity<String> register(@PathVariable Long courseId) {
+    private final CourseService courseService;
+
+    public RegistrationController(CourseService courseService) {
+        this.courseService = courseService;
+    }
+
+//    @GetMapping("/register")
+//    public ResponseEntity<String> register(String courseId) {
 //        // 해당 과목 특정
 //        Optional<Course> course = courseService.findById(courseId);
 //

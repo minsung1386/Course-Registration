@@ -7,27 +7,16 @@ import lombok.Getter;
 @Table(name = "course")
 @Getter
 public class Course {
+//    @Id
+//    @GeneratedValue(strategy = GenerationType.IDENTITY)
+//    private Long id;
+
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    @Column
+    private String courseId;
 
     @Column
     private String title;
-
-    @Column
-    private String description;
-
-    @Column
-    private String instructor;
-
-    @Column
-    private Long maxCapacity;
-
-    @Column
-    private Long currentEnrolled;
-
-    @Column
-    private String schedule;
 
     @Column
     private Long hours;
@@ -36,7 +25,19 @@ public class Course {
     private Long credit;
 
     @Column
-    private String location;
+    private Long currentEnrolled;
+
+    @Column
+    private Long maxCapacity;
+
+    @Column
+    private String instructor;
+
+    @Column
+    private String schedule;
+
+    @Column
+    private String description;
 
     @OneToOne
     @JoinColumn(name="departmentId")

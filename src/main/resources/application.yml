@@ -21,13 +21,6 @@ spring:
     init:
       mode: always
 
-#  session:
-#    timeout: 3600
-#    store-type: jdbc
-#    jdbc:
-#      initialize-schema: always
-#      table-name: SPRING_SESSION
-
   servlet:
     multipart:
       max-file-size: 1000MB
