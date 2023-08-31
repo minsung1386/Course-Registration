@@ -11,6 +11,7 @@ import java.util.List;
 public class Student {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "student_id")
     private Long id;
 
     @Column
@@ -25,7 +26,7 @@ public class Student {
     @Column
     private String idNum;
 
-    @OneToMany(mappedBy = "student", fetch = FetchType.LAZY, orphanRemoval = true, cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "student")
     private List<Enrollment> enrollments;
 
     @OneToOne

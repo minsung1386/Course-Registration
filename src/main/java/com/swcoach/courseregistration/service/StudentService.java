@@ -25,7 +25,15 @@ public class StudentService {
                         .orElseThrow(() -> new NotFoundMemberException("Member not found"));
 
         Student student = studentRepository.findByUserId(user.getId());
-
         return StudentDto.from(student);
     }
+
+//    public List<Enrollment> getEnrollments() {
+//        User user = SecurityUtil.getCurrentUsername()
+//                .flatMap(userRepository::findOneWithAuthoritiesByUsername)
+//                .orElseThrow(() -> new NotFoundMemberException("Member not found"));
+//
+//        Student student = studentRepository.findByUserId(user.getId());
+//        return student.getEnrollments();
+//    }
 }

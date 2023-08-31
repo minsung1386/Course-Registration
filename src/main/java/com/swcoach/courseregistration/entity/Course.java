@@ -12,8 +12,8 @@ public class Course {
 //    private Long id;
 
     @Id
-    @Column
-    private String courseId;
+    @Column(name = "course_id")
+    private String id;
 
     @Column
     private String title;

@@ -26,6 +26,11 @@ spring:
       max-file-size: 1000MB
       max-request-size: 1000MB
 
+  session:
+    store-type: jdbc
+    jdbc:
+      initialize-schema: always
+
 jwt:
   header: Authorization
   secret: bWluc3VuZy1zdWdhbmctc3lzdGVtLXN3LWNvYWNoLXByb2dyYW0tMjAyMy1pdC1uZWVkcy10by1iZS1sb25nLWVub3VnaC10aGlzLWlzLWp3dC1kZW1vLXByb2plY3Q=

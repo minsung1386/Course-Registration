@@ -1,6 +1,5 @@
 package com.swcoach.courseregistration.entity;
 
-import com.swcoach.courseregistration.entity.Course;
 import jakarta.persistence.*;
 import lombok.Getter;
 
@@ -19,6 +18,6 @@ public class Department {
     private String departmentName;
 
     @OneToMany
-    @JoinColumn(name = "courseId")
+    @JoinColumn(name = "course_id")
     private List<Course> courseList = new ArrayList<>();
 }

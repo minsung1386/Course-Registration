@@ -1,5 +1,5 @@
 insert into user (username, password, name, activated) values ('admin', '$2a$08$lDnHPz7eUkSi6ao14Twuau08mzhWrL4kyZGGU5xfiGALO/Vxd5DOi', 'admin', 1);
-insert into user (username, password, name, activated) values ('user', '$2a$08$UkVvwpULis18S19S5pZFn.YHPZt3oaqHZnDwqbCW9pft6uFtkXKDC', 'user', 1);
+insert into user (username, password, name, activated) values ('user', '$2a$08$UkVvwpULis18S19S5pZFn.YHPZt3oaqHZnDwqbCW9pft6uFtkXKDC', '김유저', 1);
 insert into user (username, password, name, activated) values ('tester', '$2a$10$Y9yURz3OvPnZ4hNC4rhAHuQL0de3NAKKX1Nb/5vP2OezJXDD94kay', '권민성', 1);
 
 insert into student (user_id, id_num, major, years, gpa) values (2, '2012345678', '소프트웨어학과', 3, 4.1);
@@ -13,8 +13,7 @@ insert into user_authority (user_id, authority_name) values (1, 'ROLE_ADMIN');
 insert into user_authority (user_id, authority_name) values (2, 'ROLE_USER');
 insert into user_authority (user_id, authority_name) values (3, 'ROLE_USER');
 
-
-insert into course (course_id, title, hours, credit, current_enrolled, max_capacity, instructor, schedule, description) values ('AAI2011-01', '시스템프로그래밍', 3, 3, 26, 50, '이찬수', '월09:00-10:15【33205】\n수10:30-11:45【33205】', '<글로벌-혁신[온라인사전강의 + 오프라인 또는 온라인 Real Time Streaming]> 소프트웨어학과,컴퓨터공학과 수강불가');
+insert into course (course_id, title, hours, credit, current_enrolled, max_capacity, instructor, schedule, description)values ('AAI2011-01', '시스템프로그래밍', 3, 3, 26, 50, '이찬수', '월09:00-10:15【33205】\n수10:30-11:45【33205】', '<글로벌-혁신[온라인사전강의 + 오프라인 또는 온라인 Real Time Streaming]> 소프트웨어학과,컴퓨터공학과 수강불가');
 insert into course (course_id, title, hours, credit, current_enrolled, max_capacity, instructor, schedule, description) values ('AAI2011-03', '시스템프로그래밍', 3, 3, 24, 50, '이찬수', '월10:30-11:45【33205】\n수09:00-10:15【33205】', '<글로벌-혁신[온라인사전강의 + 오프라인 또는 온라인 Real Time Streaming]> 소프트웨어학과,컴퓨터공학과 수강불가');
 insert into course (course_id, title, hours, credit, current_enrolled, max_capacity, instructor, schedule, description) values ('AIM4003-41', '자연어처리개론', 3, 3, 45, 45, '정윤경', '월15:00-16:15【26223】\n수16:30-17:45【26223】', '<글로벌-혁신[온라인사전강의 + 오프라인 또는 온라인 Real Time Streaming]> (*강좌정보안내 확인 필수*)');
 insert into course (course_id, title, hours, credit, current_enrolled, max_capacity, instructor, schedule, description) values ('CSE3036-41', '컴퓨터공학세미나', 1, 2, 96, 100, '우홍욱', '월15:00-15:50【330110】\n수17:00-17:50【330110】', '<온라인[사전제작]> 실제수업시간: 수요일 17:00~17:50, 월요일 수업 없음');
@@ -111,3 +110,8 @@ insert into course (course_id, title, hours, credit, current_enrolled, max_capac
 insert into course (course_id, title, hours, credit, current_enrolled, max_capacity, instructor, schedule, description) values ('SWE3053-41', 'HCI개론', 3, 3, 70, 70, '조재민', '월09:00-10:15【26311】\n수10:30-11:45【26311】', '<글로벌-혁신[온라인사전강의 + 오프라인 또는 온라인 Real Time Streaming]>');
 insert into course (course_id, title, hours, credit, current_enrolled, max_capacity, instructor, schedule, description) values ('SWE3058-41', '소프트웨어개발자를위한기술작문및프리젠테이션', 3, 3, 25, 71, '구형준', '금15:00-16:15【330110】\n금16:30-17:45【330110】', '<글로벌-혁신[온라인사전강의 + 오프라인 또는 온라인 Real Time Streaming]>');
 insert into course (course_id, title, hours, credit, current_enrolled, max_capacity, instructor, schedule, description) values ('SWE3059-41', '모델링과시뮬레이션', 3, 3, 31, 71, '조대호', '화10:30-11:45【26305】\n목09:00-10:15【26305】', '<오프라인>');
+
+insert into enrollment (student_id, course_id) values (2, 'SWE3025-41');
+insert into enrollment (student_id, course_id) values (2, 'SWE3004-42');
+insert into enrollment (student_id, course_id) values (2, 'SWE3052-41');
+insert into enrollment (student_id, course_id) values (2, 'ICE3037-44');

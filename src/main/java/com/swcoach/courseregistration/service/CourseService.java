@@ -19,14 +19,14 @@ public class CourseService {
         return courseRepository.findByDepartmentId(departmentId);
     }
 
-    public Optional<Course> findById(String courseId) {
-        return courseRepository.findById(courseId);
+    public Optional<Course> findById(String id) {
+        return courseRepository.findById(id);
     }
 
     // 학수번호 검색
     @Transactional
-    public List<Course> findByCourseIdContaining(String courseId) {
-        List<Course> courseList = courseRepository.findByCourseIdContaining(courseId);
+    public List<Course> findByIdContaining(String id) {
+        List<Course> courseList = courseRepository.findByIdContaining(id);
         return courseList;
     }
 

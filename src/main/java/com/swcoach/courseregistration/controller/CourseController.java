@@ -21,9 +21,9 @@ public class CourseController {
 
     // ID 검색
     @GetMapping("/course/search")
-    public ResponseEntity<List<Course>> findById(String courseId) {
+    public ResponseEntity<List<Course>> findById(String id) {
         try {
-            List<Course> searchList = courseService.findByCourseIdContaining(courseId);
+            List<Course> searchList = courseService.findByIdContaining(id);
             return ResponseEntity.ok(searchList);
         } catch (Exception e) {
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
@@ -34,7 +34,7 @@ public class CourseController {
     @GetMapping("/course/total")
     public ResponseEntity<List<Course>> findByKeyword(String keyword) {
         try {
-            List<Course> listById = courseService.findByCourseIdContaining(keyword);
+            List<Course> listById = courseService.findByIdContaining(keyword);
             List<Course> listByTitle = courseService.findByTitleContaining(keyword);
             List<Course> listByInstructor = courseService.findByInstructorContaining(keyword);
 
